@@ -1,3 +1,5 @@
+language: generic
+
 sudo: required
 services:
   - docker
@@ -6,4 +8,4 @@ before_install:
   - docker build -t flofloninja/frontend -f  Dockerfile.dev .
 
 script:
-  - docker run flofloninja/frontend npm run test -- --coverage
+  - docker run -e CI=true flofloninja/frontend npm run test -- --coverage
